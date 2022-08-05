@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="path" default="/home/tymon/DataSSD/shimizu/scene1"/>
+
+    <node pkg="auto_calibration" type="stereo_triangulation_node" name="stereo_triangulation_node" output="screen" required="true">
+        <param name="image_dir"                             value="$(arg path)/image"/>
+        <param name="match_dir"                             value="$(arg path)/matches"/>
+        <param name="cloud_dir"                             value="$(arg path)/stereo_clouds"/>
+        <param name="inlier_lower_th"                       value="0.5"/>
+        <param name="inlier_upper_th"                       value="50"/>
+    </node>
+
+</launch>

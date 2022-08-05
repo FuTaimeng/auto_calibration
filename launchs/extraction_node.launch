@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="path" default="/home/tymon/DataSSD/shimizu/scene1"/>
+
+    <node pkg="auto_calibration" type="extraction_node" name="extraction_node" output="screen">
+        <param name="rgb_dir"                   value="$(arg path)/raw_img"/>
+        <param name="thermal_dir"               value="$(arg path)/raw_img/thermal"/> 
+        <param name="laser_dir"                 value="$(arg path)/laser"/> 
+        <param name="rgb_left_topic"            value="/uav1/xic_stereo/left/image_raw"/>
+        <param name="rgb_right_topic"           value="/uav1/xic_stereo/right/image_raw"/>
+        <param name="thermal_topic"             value="/uav1/thermal/image"/>
+        <param name="laser_topic"               value="/uav1/os_hori/os_cloud_node/points"/>
+        <!-- <param name="rgb_left_topic"            value="/xic_stereo/left/image_raw"/>
+        <param name="rgb_right_topic"           value="/xic_stereo/right/image_raw"/>
+        <param name="thermal_topic"             value="/thermal"/>
+        <param name="laser_topic"               value="/velodyne_points"/> -->
+        <param name="IR_min_intensity"          value="-1"/>
+        <param name="IR_max_intensity"          value="1500"/>
+        <param name="laser_min_range"           value="0.5"/>
+        <param name="laser_max_range"           value="50"/>
+        <param name="laser_edge_th"             value="0.5"/>
+        <param name="laser_edge_sample_radius"  value="3"/>
+        <param name="debug_output"              value="false"/>
+        <param name="sample_step"               value="1"/>
+    </node>
+
+</launch>
+
+<!-- 100: 21000 22500 1500 -->

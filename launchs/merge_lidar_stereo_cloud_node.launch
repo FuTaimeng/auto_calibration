@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="path" default="/home/tymon/DataSSD/shimizu/scene1"/>
+
+    <node pkg="auto_calibration" type="merge_lidar_stereo_cloud_node" name="merge_lidar_stereo_cloud_node" output="screen" required="true">
+        <param name="lidar_calib_dir"       value="$(arg path)/laser_calib_result"/>
+        <param name="lidar_cloud_dir"       value="$(arg path)/laser/edges"/>
+        <param name="stereo_cloud_dir"      value="$(arg path)/stereo_clouds_edge"/>
+        <param name="merged_cloud_dir"      value="$(arg path)/merged_clouds_edge"/> 
+        <param name="target_type"           value="sl"/>
+    </node>
+
+</launch>

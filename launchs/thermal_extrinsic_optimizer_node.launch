@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="path" default="/home/tymon/DataSSD/shimizu/scene1"/>
+
+    <node pkg="auto_calibration" type="thermal_extrinsic_optimizer_node" name="thermal_extrinsic_optimizer_node" output="screen" required="true">
+        <param name="image_dir"                             value="$(arg path)/image"/>
+        <param name="cloud_dir"                             value="$(arg path)/merged_clouds_edge"/>
+        <param name="result_dir"                            value="$(arg path)/thermal_calib_result"/>
+        <param name="init_R_dir"                            value="$(arg path)/initial/thermal/R.dat"/>
+        <param name="init_t_dir"                            value="$(arg path)/initial/thermal/t.dat"/>
+
+        <param name="optimize_target"                       value="rxy*10_rt"/>
+        <param name="outlier_dist_lim"                      value="100"/>
+        <param name="ceres_inter"                           value="10"/>
+        <param name="frame_sample_step"                     value="2"/>
+        <param name="cloud_sample_step"                     value="10"/>
+        <param name="inter_times"                           value="20"/>
+    </node>
+
+</launch>

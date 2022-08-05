@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="path" default="/home/tymon/DataSSD/shimizu/scene1"/>
+
+    <node pkg="auto_calibration" type="lidar_extrinsic_optimizer_node" name="lidar_extrinsic_optimizer_node" output="screen" required="true">
+        <param name="image_dir"                             value="$(arg path)/image"/>
+        <param name="lidar_cloud_dir"                       value="$(arg path)/laser"/>
+        <param name="stereo_cloud_dir"                      value="$(arg path)/stereo_clouds"/>
+        <param name="result_dir"                            value="$(arg path)/laser_calib_result"/>
+        <param name="init_R_dir"                            value="$(arg path)/initial/laser/R.dat"/>
+        <param name="init_t_dir"                            value="$(arg path)/initial/laser/t.dat"/>
+        
+        <param name="frame_sample_step"                     value="2"/>
+        <param name="cloud_sample_step"                     value="10"/>
+        <param name="inter_times"                           value="50"/>
+        <param name="dist_lim"                              value="1.0*10_0.5*20_0.2"/>
+        <param name="optimize_target"                       value="r*20_rt"/>
+        <param name="cloud_max_dist"                        value="20"/>
+    </node>
+
+</launch>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="path" default="/home/tymon/DataSSD/shimizu/scene1"/>
+    <arg name="image_input_dir" default="$(arg path)/raw_img" doc="input image folder that has left and right subfolders, storing left and right images respectively."/> 
+    <arg name="image_output_dir" default="$(arg path)/image" doc="output image folder that has left and right subfolders, storing selected and rectified images."/>
+    <arg name="stereo_calib_dir" default="$(arg path)/calib" doc="the calibration file folder"/>
+    <arg name="sample_step" default="1" doc="subselection step. e.g. 5 means selecting 1 image for every 5 images."/>
+
+    <node pkg="auto_calibration" type="image_preprocess_node" name="image_preprocess_node" output="screen" required="true">
+        <param name="image_input_dir"       value="$(arg image_input_dir)"/>
+        <param name="image_output_dir"      value="$(arg image_output_dir)"/>
+        <param name="stereo_calib_dir"      value="$(arg stereo_calib_dir)"/>
+        <param name="sample_step"           value="$(arg sample_step)"/>
+    </node>
+
+</launch>

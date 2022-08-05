@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="path" default="/home/tymon/DataSSD/shimizu/scene1"/>
+
+    <node pkg="auto_calibration" type="stereo_pair_feature_matcher_node" name="stereo_pair_feature_matcher_node" output="screen" required="true">
+        <param name="image_dir"                             value="$(arg path)/image"/>
+        <param name="match_dir"                             value="$(arg path)/matches"/>
+        <param name="feat_density"                          value="dense"/>
+        <param name="edge_mask"                             value="false"/>
+        <param name="outlier_dist_lim"                      value="50"/>
+        <param name="feature_method"                        value="sift"/>
+    </node>
+
+</launch>
