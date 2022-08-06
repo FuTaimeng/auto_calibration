@@ -14,7 +14,7 @@ source devel/setup.bash
 ```
 ## Run Quick Test
 ### Download test data
-TODO
+[scene1.tar.xz](https://cuhko365-my.sharepoint.com/:u:/g/personal/119010073_link_cuhk_edu_cn/Efkif2D7whpEqsHae2zKc_4BLdxVhcL_TSyGuGX8-UMs7Q?e=WdK8fg)
 ### Laser to stereo calibration
 ```
 roslaunch auto_calibration lidar_extrinsic_optimizer_node.launch path:=/path/to/dataset
@@ -30,7 +30,8 @@ roslaunch auto_calibration thermal_extrinsic_optimizer_node.launch path:=/path/t
 
 ## Run from begining
 ### Download bag files
-TODO
+[camera_100.bag](https://drive.google.com/file/d/1syumNfvM3CZVBUttvkKv0DTnUdZwwFrM/view?usp=sharing)
+[lidar_100.bag](https://drive.google.com/file/d/1igsIG6DP7nR5VegzC9-9-CkyTS5x_WXC/view?usp=sharing)
 ### Extract data
 ```
 roslaunch auto_calibration extraction_node.launch path:=/path/to/dataset & \
