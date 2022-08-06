@@ -1,7 +1,15 @@
 # Targetless Extrinsic Calibration of Stereo, Thermal, and Laser Sensors in Structured Environments
 
+A new targetless cross-modal calibration system focusing on the extrinsic transformations among stereo cameras, thermal cameras, and laser sensors. Our method requires no dedicated targets and performs the multi-sensor calibration in a single shot without human interaction.
+
+![image](https://github.com/FuTaimeng/auto_calibration/blob/main/figures/laser_calib.png)
+Laser points projected on RGB image (converted to grayscale for better visualization) with initial and calibrated extrinsic.
+
+![image](https://github.com/FuTaimeng/auto_calibration/blob/main/figures/th_calib_4.png)
+Stereo and laser edge projections (red dots) on thermal images before and after thermal extrinsic calibration on four datasets.
+
 ## Enviroments
-Please use the DockerFile and requirements.txt we provided to configure the enviroment.
+Please use the DockerFile we provided to configure the enviroment.
 
 ## Installation
 ```
@@ -31,6 +39,7 @@ roslaunch auto_calibration thermal_extrinsic_optimizer_node.launch path:=/path/t
 ## Run from begining
 ### Download bag files
 [camera_100.bag](https://drive.google.com/file/d/1syumNfvM3CZVBUttvkKv0DTnUdZwwFrM/view?usp=sharing)
+
 [lidar_100.bag](https://drive.google.com/file/d/1igsIG6DP7nR5VegzC9-9-CkyTS5x_WXC/view?usp=sharing)
 ### Extract data
 ```
@@ -67,4 +76,14 @@ roslaunch auto_calibration merge_lidar_stereo_cloud_node.launch path:=/path/to/d
 ### Stereo-and-laser to thermal calibration
 ```
 roslaunch auto_calibration thermal_extrinsic_optimizer_node.launch path:=/path/to/dataset
+```
+
+## Cite
+```
+@article{fu2021targetless,
+  title={Targetless Extrinsic Calibration of Stereo Cameras, Thermal Cameras, and Laser Sensors in the Wild},
+  author={Fu, Taimeng and Yu, Huai and Hu, Yaoyu and Scherer, Sebastian},
+  journal={arXiv preprint arXiv:2109.13414},
+  year={2021}
+}
 ```
